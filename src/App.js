@@ -5,14 +5,7 @@ import CreateResource from './components/CreateResource';
 import ResourceList from './components/ResourceList';
 import logo from './near_logo.png'
 
-interface Props {
-  contract: any
-  currentUser: any;
-  nearConfig: any;
-  wallet: any;
-}
-
-const App = ({ contract, currentUser, nearConfig, wallet }:Props) => {
+const App = ({ contract, currentUser, nearConfig, wallet }) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
 
   const signIn = () => {
@@ -93,6 +86,22 @@ const App = ({ contract, currentUser, nearConfig, wallet }:Props) => {
   );
 };
 
-
+App.propTypes = {
+  contract: PropTypes.shape({
+    addResource: PropTypes.func.isRequired,
+    getResources: PropTypes.func.isRequired,
+  }).isRequired,
+  currentUser: PropTypes.shape({
+    accountId: PropTypes.string.isRequired,
+    balance: PropTypes.string.isRequired
+  }),
+  nearConfig: PropTypes.shape({
+    contractName: PropTypes.string.isRequired
+  }).isRequired,
+  wallet: PropTypes.shape({
+    requestSignIn: PropTypes.func.isRequired,
+    signOut: PropTypes.func.isRequired
+  }).isRequired
+};
 
 export default App;
