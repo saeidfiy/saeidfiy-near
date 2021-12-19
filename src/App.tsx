@@ -1,6 +1,5 @@
 import 'regenerator-runtime/runtime';
 import React from 'react';
-import PropTypes from 'prop-types';
 import CreateResource from './components/CreateResource';
 import ResourceList from './components/ResourceList';
 import logo from './near_logo.png'
